@@ -56,9 +56,12 @@ This project simulates a production-style web application split into three isola
 
 ## ⚙️ 4. App Tier
 
-- EC2 instances running a Node.js backend on port 4000
-- PM2 for process management and auto-restart
-- Internal Application Load Balancer + Auto Scaling Group (min 2, max 2)
+- Connected to AppLayer EC2 instance via Session Manager
+- Started backend with pm2 start index.js — status: online (PID 4063)
+- Ran combined test: pm2 status && curl health && curl transaction
+- PM2: online, stable uptime (55s)
+- Health check: "This is the health check" — app is live
+- Transaction endpoint: {"result":[{"id":1,"amount":400,"description":"groceries"}]} — confirms live DB connection
 
 ![EC2 Instances](screenshots/ec2-instances.png)
 

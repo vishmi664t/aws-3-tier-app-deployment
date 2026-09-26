@@ -37,14 +37,14 @@ This project simulates a production-style web application split into three isola
 - Internet Gateway for public access + 2 NAT Gateways for private subnet outbound traffic
 - Dedicated route tables per subnet tier
 
-📸 [See VPC & Subnet Screenshots](screenshots/vpc-subnets.png)
+![VPC and Subnets](screenshots/vpc-subnets.png)
 
 ## 🔒 2. Security
 
 - 5 layered security groups (public ALB → web tier → internal ALB → app tier → database), following least-privilege access
 - IAM roles for EC2 to access S3 and use Systems Manager Session Manager (no SSH keys needed)
 
-📸 [See Security Group Screenshots](screenshots/security-groups.png)
+![Security Groups](screenshots/security-groups.png)
 
 ## 🗄️ 3. Database Tier
 
@@ -52,7 +52,7 @@ This project simulates a production-style web application split into three isola
 - DB subnet group spanning 2 Availability Zones for automatic failover
 - Sample `transactions` table created and tested
 
-📸 [See Database Screenshots](screenshots/database.png)
+![Database](screenshots/database.png)
 
 ## ⚙️ 4. App Tier
 
@@ -60,7 +60,7 @@ This project simulates a production-style web application split into three isola
 - PM2 for process management and auto-restart
 - Internal Application Load Balancer + Auto Scaling Group (min 2, max 2)
 
-📸 [See App Tier Screenshots](screenshots/app-tier.png)
+![EC2 Instances](screenshots/ec2-instances.png)
 
 ## 🖥️ 5. Web Tier
 
@@ -68,15 +68,17 @@ This project simulates a production-style web application split into three isola
 - NGINX configured as reverse proxy to the internal load balancer
 - Internet-facing Application Load Balancer + Auto Scaling Group
 
-📸 [See Web Tier & Live App Screenshots](screenshots/web-tier.png)
+![Live Application](screenshots/live-app.png)
 
 ## 📸 Screenshots
 
-| Component | Preview |
+| Component | File |
 |---|---|
+| Architecture Diagram | [View](screenshots/architecture-diagram.png) |
 | VPC & Subnets | [View](screenshots/vpc-subnets.png) |
-| Running EC2 Instances | [View](screenshots/ec2-instances.png) |
-| Aurora Database | [View](screenshots/database.png) |
+| Security Groups | [View](screenshots/security-groups.png) |
+| Database | [View](screenshots/database.png) |
+| EC2 Instances | [View](screenshots/ec2-instances.png) |
 | Live Website | [View](screenshots/live-app.png) |
 
 ## 🛠️ Tech Stack
@@ -97,4 +99,3 @@ This project simulates a production-style web application split into three isola
 ## 🙏 Credit
 
 Built by following AWS's official three-tier architecture workshop as a base, with full hands-on implementation, configuration, and testing on my own AWS account.
-
